@@ -25,34 +25,34 @@ class Test{
     @Column('timestamp with time zone')
     deadline: Date[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     subnum: number[];
 
-    @Column("text", { array: true })
+    @Column("int", { array: true })
     type: string[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     block: number[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     congruency: number[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     trial: number[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     stim: number[];
 
     @Column("text", { array: true })
     resp: string[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     corr: number[];
 
     @Column("text", { array: true })
     rt: string[];
 
-    @Column("int", { array: true })
+    @Column("text", { array: true })
     tooslow: number[];
 
     @CreateDateColumn()

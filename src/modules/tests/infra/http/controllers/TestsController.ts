@@ -2,25 +2,50 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { getRepository, getCustomRepository } from 'typeorm';
 
-import CreateProjectService from '@modules/tests/services/CreateTestService';
-import ProjectRepository from '../../typeorm/repositories/ProjectRepository';
+import CreateTestService from '@modules/tests/services/CreateTestService';
+import TestRepository from '../../typeorm/repositories/TestRepository';
+import TestsRepository from '../../typeorm/repositories/TestsRepository';
 
 export default class TestController { 
     public async create(request: Request, response: Response): Promise<Response> {
-        const { results, deadline } = request.body;
+        const {
+            deadline,
+            subnum,
+            type,
+            block,
+            congruency,
+            trial,
+            stim,
+            resp,
+            corr,
+            rt,
+            tooslow
+        } = request.body;
 
-        const createProject = container.resolve(CreateProjectService);
+        const user_id = request.body;
+
+        const createProject = container.resolve(CreateTestService);
 
         const test = await createProject.execute({
-            results,
+            user_id,
             deadline,
+            subnum,
+            type,
+            block,
+            congruency,
+            trial,
+            stim,
+            resp,
+            corr,
+            rt,
+            tooslow,
         });
 
         return response.json(test); 
     } 
 
     public async show(request: Request, response: Response): Promise <Response> { 
-        const projectRepository = getCustomRepository(ProjectRepository);
+        const projectRepository = getCustomRepository(TestRepository);
 
         const user_id = request.body;
             
@@ -30,25 +55,11 @@ export default class TestController {
     }
 
     public async index(request: Request, response: Response): Promise <Response> { 
-        const projectRepository = getCustomRepository(ProjectRepository);
+        const projectRepository = getCustomRepository(TestRepository);
             
             const projects = await projectRepository.find();
 
             return response.json(projects);
     }
-
-    public async start(request: Request, response: Response): Promise<Response> {
-        const { results, deadline } = request.body;
-        const user_id = request.user.id; 
-
-        const createProject = container.resolve(CreateProjectService);
-
-        const test = await createProject.execute({
-            results,
-            deadline,
-        });
-
-        return response.json(test); 
-    } 
 
 }

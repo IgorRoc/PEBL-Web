@@ -11,12 +11,12 @@ interface Request{
 @injectable()
 class ListProjectsService {
     constructor(
-        @inject('ProjectsRepository')
-        private projectsRepository: ITestRepository
+        @inject('TestsRepository')
+        private testRepository: ITestRepository
     ){}
 
     public async execute({user_id}: Request): Promise<Project[]> {  
-        const projects = await this.projectsRepository.findAllTests(user_id);
+        const projects = await this.testRepository.findAllTests(user_id);
 
         return projects;
     }

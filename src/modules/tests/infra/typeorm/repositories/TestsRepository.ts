@@ -12,8 +12,31 @@ class TestsRepository implements ITestsRepository{
         this.ormRepository = getRepository(Test);
     }
 
-    public async create({ deadline, results }: ICreateTestDTO): Promise<Test>{
-        const project = this.ormRepository.create({    
+    public async create({
+        deadline,
+        subnum,
+        type,
+        block,
+        congruency,
+        trial,
+        stim,
+        resp,
+        corr,
+        rt,
+        tooslow
+    }: ICreateTestDTO): Promise<Test>{
+        const project = this.ormRepository.create({  
+            deadline,
+            subnum,
+            type,
+            block,
+            congruency,
+            trial,
+            stim,
+            resp,
+            corr,
+            rt,
+            tooslow
         });
 
         await this.ormRepository.save(project);

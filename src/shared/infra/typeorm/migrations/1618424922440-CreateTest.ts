@@ -19,7 +19,7 @@ export default class CreateTest1618424922440 implements MigrationInterface {
                 },
                 {
                     name: 'subnum',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'type',
@@ -27,27 +27,27 @@ export default class CreateTest1618424922440 implements MigrationInterface {
                 },
                 {
                     name: 'block',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'congruency',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'trial',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'stim',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'resp',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'corr',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'rt',
@@ -55,7 +55,7 @@ export default class CreateTest1618424922440 implements MigrationInterface {
                 },
                 {
                     name: 'tooslow',
-                    type: 'int',
+                    type: 'varchar',
                 },
                 {
                     name: 'created_at',
