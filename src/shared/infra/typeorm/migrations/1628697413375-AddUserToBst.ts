@@ -1,15 +1,14 @@
 import {MigrationInterface, QueryRunner, TableColumn, TableForeignKey} from "typeorm";
 
-export class AddUserToTest1618576011321 implements MigrationInterface {
+export class AddUserToBst1628697413375 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.addColumn('tests', new TableColumn({
+        await queryRunner.addColumn('bst', new TableColumn({
             name: 'user_id',
-            type: 'uuid',
-            isNullable: true,
+            type: 'uuid'
         }));
 
-        await queryRunner.createForeignKey('tests', new TableForeignKey({
+        await queryRunner.createForeignKey('bst', new TableForeignKey({
             name: 'UserToTest',
             columnNames: ['user_id'],
             referencedColumnNames: ['id'],
@@ -21,9 +20,9 @@ export class AddUserToTest1618576011321 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey('tests', 'UserToTest');
+        await queryRunner.dropForeignKey('bst', 'UserToTest');
         
-        await queryRunner.dropColumn('tests', 'user_id');
+        await queryRunner.dropColumn('bst', 'user_id');
     }
 
 }

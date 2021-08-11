@@ -1,13 +1,12 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { getRepository, getCustomRepository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 
-import CreateTestService from '@modules/tests/services/CreateTestService';
-import TestRepository from '../../typeorm/repositories/TestRepository';
-import TestsRepository from '../../typeorm/repositories/TestsRepository';
+import CreateTestsService from '@modules/tests/services/CreateTestsService';
+import BstsRepository from '../../typeorm/repositories/BstRepository';
 
-export default class TestController { 
-    public async create(request: Request, response: Response): Promise<Response> {
+export default class BstController { 
+    public async create_bst(request: Request, response: Response): Promise<Response> {
         const {
             deadline,
             subnum,
@@ -24,9 +23,9 @@ export default class TestController {
 
         const user_id = request.body;
 
-        const createProject = container.resolve(CreateTestService);
+        const createTest = container.resolve(CreateTestsService);
 
-        const test = await createProject.execute({
+        const test = await createTest.execute_bst({
             user_id,
             deadline,
             subnum,
@@ -44,22 +43,56 @@ export default class TestController {
         return response.json(test); 
     } 
 
+    public async create_sternberg(request: Request, response: Response): Promise<Response> {
+        const {
+            user_id,
+            deadline,
+            subnum,
+            length,
+            trial,
+            set,
+            stim,
+            targetfoil,
+            resp,
+            corr,
+            rt
+        } = request.body;
+
+        const createTest = container.resolve(CreateTestsService);
+
+        const test = await createTest.execute_sternberg({
+            user_id,
+            deadline,
+            subnum,
+            length,
+            trial,
+            set,
+            stim,
+            targetfoil,
+            resp,
+            corr,
+            rt
+        });
+
+        return response.json(test); 
+    }
+
     public async show(request: Request, response: Response): Promise <Response> { 
-        const projectRepository = getCustomRepository(TestRepository);
+        const testRepository = getCustomRepository(BstsRepository);
 
         const user_id = request.body;
             
-        const projects = await projectRepository.findAndCount(user_id);
+        const test = await testRepository.findAndCount(user_id);
 
-        return response.json(projects);
+        return response.json(test);
     }
 
     public async index(request: Request, response: Response): Promise <Response> { 
-        const projectRepository = getCustomRepository(TestRepository);
+        const testRepository = getCustomRepository(BstsRepository);
             
-            const projects = await projectRepository.find();
+            const test = await testRepository.find();
 
-            return response.json(projects);
+            return response.json(test);
     }
 
 }

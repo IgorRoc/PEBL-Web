@@ -2,13 +2,12 @@ export default interface ICreateTestDTO {
     user_id: string;
     deadline: Date[];
     subnum: number[];
-    type: string[];
-    block: number[];
-    congruency: number[];
+    length: number[];
     trial: number[];
-    stim: number[];
+    set: string[];
+    stim: string[];
+    targetfoil: string[];
     resp: string[];
     corr: number[];
-    rt: string[];
-    tooslow: number[];
+    rt: number[];
 }

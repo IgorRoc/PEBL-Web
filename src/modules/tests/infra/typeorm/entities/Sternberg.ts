@@ -10,8 +10,8 @@ import{
 
 import User from '@modules/users/infra/typeorm/entities/Users';
 
-@Entity('tests')
-class Test{
+@Entity('sternberg')
+class Sternberg{
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -29,19 +29,19 @@ class Test{
     subnum: number[];
 
     @Column("int", { array: true })
-    type: string[];
-
-    @Column("text", { array: true })
-    block: number[];
-
-    @Column("text", { array: true })
-    congruency: number[];
+    length: number[];
 
     @Column("text", { array: true })
     trial: number[];
 
     @Column("text", { array: true })
-    stim: number[];
+    set: string[];
+
+    @Column("text", { array: true })
+    stim: string[];
+
+    @Column("text", { array: true })
+    targetfoil: string[];
 
     @Column("text", { array: true })
     resp: string[];
@@ -50,10 +50,7 @@ class Test{
     corr: number[];
 
     @Column("text", { array: true })
-    rt: string[];
-
-    @Column("text", { array: true })
-    tooslow: number[];
+    rt: number[];
 
     @CreateDateColumn()
     created_at: Date;
@@ -62,4 +59,4 @@ class Test{
     updated_at: Date;
 }
 
-export default Test;
+export default Sternberg;

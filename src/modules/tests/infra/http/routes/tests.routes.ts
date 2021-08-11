@@ -7,8 +7,9 @@ const testsRouter = Router();
 const testsController = new TestsController();
 
 testsRouter.use(ensureAuthenticated);
-testsRouter.post('/create', testsController.create);
-testsRouter.post('/show', testsController.show);
-testsRouter.get('/list', testsController.index);
+testsRouter.post('/bst', testsController.create_bst);
+testsRouter.post('/sternberg', testsController.create_sternberg);
+testsRouter.post('/show/bst', testsController.show);
+testsRouter.get('/list/bst', testsController.index);
 
 export default testsRouter;

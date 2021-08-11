@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 
-import ITestRepository from '@modules/tests/repositories/ITestRepository';
+import ITestRepository from '@modules/tests/repositories/ITestsRepository';
 import TestsRepository from '@modules/tests/infra/typeorm/repositories/TestsRepository';
 
 import IHashProvider from '@modules/users/providers/HashProvider/models/IHashProvider';

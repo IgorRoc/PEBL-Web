@@ -4,7 +4,7 @@
    "port": 5432,
    "username": "postgres",
    "password": "docker",
-   "database": "pebl",
+   "database": "peblbr",
    "entities": [
       "./src/modules/**/infra/typeorm/entities/*.ts"
    ],
