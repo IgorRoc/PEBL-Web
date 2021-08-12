@@ -94,6 +94,16 @@ export class CreateStroopTest1628733185707 implements MigrationInterface {
                         name: 'responsetime',
                         type: 'varchar',
                     },
+                    {
+                        name: 'created_at',
+                        type: 'timestamp',
+                        default: 'now()',
+                    },
+                    {
+                        name: 'updated_at',
+                        type: 'timestamp',
+                        default: 'now()',
+                    }
                 ]
             })
         )

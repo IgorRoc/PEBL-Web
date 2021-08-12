@@ -29,7 +29,7 @@ class Stroop{
     subnum: number[];
 
     @Column("int", { array: true })
-    round: string[];
+    round: number[];
 
     @Column("text", { array: true })
     block: number[];

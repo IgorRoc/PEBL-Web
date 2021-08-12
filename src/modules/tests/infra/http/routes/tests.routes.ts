@@ -9,6 +9,8 @@ const testsController = new TestsController();
 testsRouter.use(ensureAuthenticated);
 testsRouter.post('/bst', testsController.create_bst);
 testsRouter.post('/sternberg', testsController.create_sternberg);
+testsRouter.post('/tol', testsController.create_tol);
+testsRouter.post('/stroop', testsController.create_stroop);
 testsRouter.post('/show/bst', testsController.show);
 testsRouter.get('/list/bst', testsController.index);
 

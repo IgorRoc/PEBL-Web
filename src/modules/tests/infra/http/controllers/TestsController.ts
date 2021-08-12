@@ -77,6 +77,102 @@ export default class BstController {
         return response.json(test); 
     }
 
+    public async create_tol(request: Request, response: Response): Promise<Response> {
+        const {
+            user_id,
+            deadline,
+            sub,
+            trial,
+            size,
+            current,
+            end,
+            step,
+            reset,
+            tries,
+            score,
+            abstime,
+            trialtime,
+            clicktime,
+            done
+        } = request.body;
+
+        const createTest = container.resolve(CreateTestsService);
+
+        const test = await createTest.execute_tol({
+            user_id,
+            deadline,
+            sub,
+            trial,
+            size,
+            current,
+            end,
+            step,
+            reset,
+            tries,
+            score,
+            abstime,
+            trialtime,
+            clicktime,
+            done
+        });
+
+        return response.json(test); 
+    }
+
+    public async create_stroop(request: Request, response: Response): Promise<Response> {
+        const {
+            user_id,
+            deadline,
+            subnum,
+            round,
+            block,
+            trial,
+            word,
+            color,
+            part,
+            xpos,
+            ypos,
+            resp,
+            rname,
+            correct,
+            intrusion,
+            numresponses,
+            time0,
+            timea,
+            timeend,
+            trialtime,
+            responsetime
+        } = request.body;
+
+        const createTest = container.resolve(CreateTestsService);
+
+        const test = await createTest.execute_stroop({
+            user_id,
+            deadline,
+            subnum,
+            round,
+            block,
+            trial,
+            word,
+            color,
+            part,
+            xpos,
+            ypos,
+            resp,
+            rname,
+            correct,
+            intrusion,
+            numresponses,
+            time0,
+            timea,
+            timeend,
+            trialtime,
+            responsetime
+        });
+
+        return response.json(test); 
+    }
+
     public async show(request: Request, response: Response): Promise <Response> { 
         const testRepository = getCustomRepository(BstsRepository);
 

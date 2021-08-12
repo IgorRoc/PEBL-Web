@@ -1,10 +1,17 @@
 import { injectable, inject } from 'tsyringe';
 
-import Bst from '@modules/tests/infra/typeorm/entities/BST';
 import ITestsRepository from '@modules/tests/repositories/ITestsRepository';
+
+import Bst from '@modules/tests/infra/typeorm/entities/BST';
 import ICreateTestDTO from '../dtos/ICreateBstDTO';
-import ICreateSternbergDTO from '../dtos/ICreateSternbergDTO';
+
 import Sternberg from '../infra/typeorm/entities/Sternberg';
+import ICreateSternbergDTO from '../dtos/ICreateSternbergDTO';
+
+import Tol from '../infra/typeorm/entities/TOL';
+import ICreateTolDTO from '../dtos/ICreateTolDTO';
+import ICreateStroopDTO from '../dtos/ICreateStroopDTO';
+import Stroop from '../infra/typeorm/entities/Stroop';
 
 @injectable()
 class CreateTestsService {
@@ -70,6 +77,94 @@ class CreateTestsService {
             resp,
             corr,
             rt
+        });
+
+        return test; 
+    }
+
+    public async execute_tol({ 
+        user_id,
+        deadline,
+        sub,
+        trial,
+        size,
+        current,
+        end,
+        step,
+        reset,
+        tries,
+        score,
+        abstime,
+        trialtime,
+        clicktime,
+        done
+        }: ICreateTolDTO): Promise<Tol> {
+        const test = await this.testsRepository.create_tol({
+            user_id,
+            deadline,
+            sub,
+            trial,
+            size,
+            current,
+            end,
+            step,
+            reset,
+            tries,
+            score,
+            abstime,
+            trialtime,
+            clicktime,
+            done
+        });
+
+        return test; 
+    }
+
+    public async execute_stroop({ 
+        user_id,
+        deadline,
+        subnum,
+        round,
+        block,
+        trial,
+        word,
+        color,
+        part,
+        xpos,
+        ypos,
+        resp,
+        rname,
+        correct,
+        intrusion,
+        numresponses,
+        time0,
+        timea,
+        timeend,
+        trialtime,
+        responsetime
+        }: ICreateStroopDTO): Promise<Stroop> {
+        const test = await this.testsRepository.create_stroop({
+            user_id,
+            deadline,
+            subnum,
+            round,
+            block,
+            trial,
+            word,
+            color,
+            part,
+            xpos,
+            ypos,
+            resp,
+            rname,
+            correct,
+            intrusion,
+            numresponses,
+            time0,
+            timea,
+            timeend,
+            trialtime,
+            responsetime
         });
 
         return test; 
