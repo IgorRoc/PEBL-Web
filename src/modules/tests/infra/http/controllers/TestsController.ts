@@ -3,7 +3,10 @@ import { container } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
 
 import CreateTestsService from '@modules/tests/services/CreateTestsService';
-import BstsRepository from '../../typeorm/repositories/BstRepository';
+import BstRepository from '../../typeorm/repositories/BstRepository';
+import SternbergRepository from '../../typeorm/repositories/SternbergRepository';
+import TolRepository from '../../typeorm/repositories/TolRepository';
+import StroopRepository from '../../typeorm/repositories/StroopRepository';
 
 export default class BstController { 
     public async create_bst(request: Request, response: Response): Promise<Response> {
@@ -173,8 +176,8 @@ export default class BstController {
         return response.json(test); 
     }
 
-    public async show(request: Request, response: Response): Promise <Response> { 
-        const testRepository = getCustomRepository(BstsRepository);
+    public async show_userbst(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(BstRepository);
 
         const user_id = request.body;
             
@@ -183,8 +186,62 @@ export default class BstController {
         return response.json(test);
     }
 
-    public async index(request: Request, response: Response): Promise <Response> { 
-        const testRepository = getCustomRepository(BstsRepository);
+    public async index_bst(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(BstRepository);
+            
+            const test = await testRepository.find();
+
+            return response.json(test);
+    }
+
+    public async show_usersternberg(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(SternbergRepository);
+
+        const user_id = request.body;
+            
+        const test = await testRepository.findAndCount(user_id);
+
+        return response.json(test);
+    }
+
+    public async index_sternberg(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(SternbergRepository);
+            
+            const test = await testRepository.find();
+
+            return response.json(test);
+    }
+
+    public async show_usertol(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(TolRepository);
+
+        const user_id = request.body;
+            
+        const test = await testRepository.findAndCount(user_id);
+
+        return response.json(test);
+    }
+
+    public async index_tol(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(TolRepository);
+            
+            const test = await testRepository.find();
+
+            return response.json(test);
+    }
+
+    public async show_userstroop(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(StroopRepository);
+
+        const user_id = request.body;
+            
+        const test = await testRepository.findAndCount(user_id);
+
+        return response.json(test);
+    }
+
+    public async index_stroop(request: Request, response: Response): Promise <Response> { 
+        const testRepository = getCustomRepository(StroopRepository);
             
             const test = await testRepository.find();
 
