@@ -16,59 +16,72 @@ export class CreateTolTest1628733289602 implements MigrationInterface {
                     },
                     {
                         name: 'deadline',
-                        type: 'varchar'
+                        type: 'timestamp with time zone',
                     },
                     {
                         name: 'sub',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'trial',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'size',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'current',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'end',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'step',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'reset',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'tries',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'score',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'abstime',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'trialtime',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'clicktime',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'done',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isArray: true,
                     },
                     {
                         name: 'created_at',

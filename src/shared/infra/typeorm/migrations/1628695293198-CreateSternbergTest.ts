@@ -20,38 +20,47 @@ export class CreateSternbergTest1628695293198 implements MigrationInterface {
                 {
                     name: 'subnum',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'length',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'trial',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'set',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'stim',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'targetfoil',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'resp',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'corr',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'rt',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'created_at',

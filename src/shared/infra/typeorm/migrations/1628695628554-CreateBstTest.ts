@@ -20,42 +20,52 @@ export class CreateBstTest1628695628554 implements MigrationInterface {
                 {
                     name: 'subnum',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'type',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'block',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'congruency',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'trial',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'stim',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'resp',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'corr',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'rt',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'tooslow',
                     type: 'varchar',
+                    isArray: true
                 },
                 {
                     name: 'created_at',
